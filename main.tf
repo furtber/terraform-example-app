@@ -5,7 +5,7 @@ data "terraform_remote_state" "core_infra" {
 
   config {
     bucket = "terraform-tfstate-825265825471"
-    key    = "workspace/${var.environment}/core-infra.tfstate"
+    key    = "workspace/${var.ENVIRONMENT}/core-infra.tfstate"
     region = "eu-west-1"
   }
 }
