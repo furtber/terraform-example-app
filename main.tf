@@ -12,7 +12,7 @@ data "terraform_remote_state" "core_infra" {
 
 data "aws_ami" "example_app" {
   most_recent      = true
-  owners           = ["self"]
+  owners           = ["82526582547"]
 
   filter {
     name = "name"
