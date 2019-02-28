@@ -10,18 +10,18 @@ data "terraform_remote_state" "core_infra" {
   }
 }
 
-data "aws_ami" "amazon_linux" {
+data "aws_ami" "example_app" {
   most_recent = true
 
   filter {
     name = "name"
 
     values = [
-      "amzn-ami-hvm-*-x86_64-gp2",
+      "Example Application*",
     ]
   }
 
-  owners = ["amazon"]
+  owners = ["self"]
 }
 
 resource "aws_instance" "example_app" {
