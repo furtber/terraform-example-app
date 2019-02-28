@@ -11,17 +11,23 @@ data "terraform_remote_state" "core_infra" {
 }
 
 data "aws_ami" "example_app" {
-  most_recent = true
+  most_recent      = true
+  owners           = ["self"]
 
   filter {
     name = "name"
-
-    values = [
-      "Example Application*",
-    ]
+    values = ["Example application*"]
   }
 
-  owners = ["self"]
+  filter {
+    name = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name = "virtualization-type"
+    values = ["hvm"]
+  }
 }
 
 resource "aws_instance" "example_app" {
