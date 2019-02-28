@@ -25,7 +25,7 @@ data "aws_ami" "example_app" {
 }
 
 resource "aws_instance" "example_app" {
-  ami           = "${data.aws_ami.amazon_linux.id}"
+  ami           = "${data.aws_ami.example_app.id}"
   instance_type = "t2.micro"
   subnet_id     = "${element(data.terraform_remote_state.core_infra.private_subnet_ids,0)}"
 
